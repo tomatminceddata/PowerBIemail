@@ -1,0 +1,2 @@
+The stopwords have been taken from here: https://gist.github.com/sebleier/554280
+Date: 2018-05-13
