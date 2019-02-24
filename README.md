@@ -30,7 +30,10 @@ The value of this paraemter may look like this:
 C:\@Stopwords\Stopwords.txt
 Please be aware that this is a simplified solution. This solution just considers english stopwords. If you are dealing with multiple languages you have to consider multiple stopwords files and also cultural nuances can become important.
 ## appKeyTextAnalytics
-Here you have to place the application key. This key can be found on the overview page of your Azure text analytics page. For the beginning I recommend that you omit this Parameter, and ignore all the errors. This will help to safe money, even if the usage of the Cognitive Services is worth all of it (but this is just my personal point of view) 
+Here you have to place the application key. This key can be found on the overview page of your Azure text analytics page. For the beginning I recommend that you omit this Parameter, and ignore all the errors. This will help to safe money, even if the usage of the Cognitive Services is worth all of it (but this is just my personal point of view).
+
+If you omit this and/or the next parameter. The custom function will not work (of course, but there will also no costs :-)
+
 ## endpointTextAnalyticsKeyPhrases
 This points to the endpoint of the Key Phrases api and may look like this:
 https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
@@ -47,3 +50,5 @@ The Mail query contains a step "Remove stopWords from textBody", this step lever
 The step "Remove stopWords from textBody" uses the function "List.Accumulate" (one of the more mysterious M functions) to create a comma separated string from the words of the table "_whitewords" that are contained in the list of words of the email body. Basically you can imagine the function List.Accumulate as an iterator function that adds something to a list if a given condition is met.
 ## Multivalue fields and relationship modeling
 As there are many multivalue fields inside the fact table, it's necessary (at least from my point of view) to treat these fields in a special way. I create intermediate tables for each multivalue fiels by using the function Table.SelectColumns() as a source, then I remove all the duplicate values. I call these tables "bridge ...". These tables should be hidden from the report view. As another step I create another step that references the bridge table, duplicate the column, rename this column properly and split this column by delimiter (,) into new rows.
+## Invoking a custom function to extract Key Phrases
+There is a custom function that calls the Key Phrases endpoint from the Azure Cognitive Services. This function is used inside the Mail query. You might find the function, the function usage, and also the try/otherwise exception handling if the function returns an error, due to missing or incorrect parameters.
