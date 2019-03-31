@@ -1,7 +1,7 @@
 # PowerBIemail
-A power bi template file, that allows to connect to an o365 email account and uses Power BI techniques and Azure Cognitive Services to find insights that are buried in your inbox.
+Here you will find a power bi template file, that allows to connect to an o365 email account and uses Power BI techniques and Azure Cognitive Services to find insights that are buried in your inbox.
 
-Please be aware that I provide this Power BI template file as it is, it has a reduced set of functionality in comparisone to the file I'm using. There is no clear plan to add new capabilities and new analysis. 
+Please be aware that I provide this Power BI template file as it is. Due to the course of this year I will add new analytical capabilities in preparation of my speakings. 
 
 As I'm using this template for public talks about Power BI and natural language processing I will add to this template during the year. My next talk will be at Data Grillen in June 2019, so there will be some enhancements to this template with new analytical capabilities or architectural changes like changing the pipeline and start using all things Azure.
 
